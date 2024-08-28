@@ -1,0 +1,22 @@
+import cv2
+import numpy as np
+
+# Load the input image in grayscale mode
+input_image = cv2.imread('E:/PictureCollection/KIUimage.jfif', cv2.IMREAD_GRAYSCALE)
+
+# Check if the image is loaded correctly
+if input_image is None:
+    print("Error: Could not load image.")
+else:
+    # Define the kernel for the morphological operations
+    kernel = np.ones((5, 5), np.uint8)
+
+    # Apply closing operation (dilation followed by erosion)
+    closing = cv2.morphologyEx(input_image, cv2.MORPH_CLOSE, kernel)
+    cv2.imwrite('E:/PictureCollection/closing.png', closing)  # Save the closing operation result
+
+    # Apply opening operation (erosion followed by dilation)
+    opening = cv2.morphologyEx(input_image, cv2.MORPH_OPEN, kernel)
+    cv2.imwrite('E:/PictureCollection/opening.png', opening)  # Save the opening operation result
+
+    print("Input image and processed images have been saved to E:/PictureCollection/")
