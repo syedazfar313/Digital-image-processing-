@@ -86,6 +86,3 @@ Each project has its folder containing the relevant code and instructions. Navig
 **License**
 
 This project is licensed under the MIT License. You are free to use, modify, and distribute it as you like.
-
-
-This project is licensed under the MIT License. You are free to use, modify, and distribute it as you like.
