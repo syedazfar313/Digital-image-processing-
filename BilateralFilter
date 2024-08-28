@@ -1,0 +1,26 @@
+import cv2
+
+# Load the image from the specified path
+image = cv2.imread(r'E:\PictureCollection\KIUimage.jfif')  # Using a raw string for the file path
+
+# Check if the image was loaded successfully
+if image is None:
+    print("Error: Image not found. Please check the file path.")
+else:
+    # Convert the image from BGR to RGB format (optional if you're using cv2.imshow, as it displays BGR natively)
+    image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+    # Display the input image using OpenCV
+    cv2.imshow('Input Image', image)  # Display in BGR format
+
+    # Apply bilateral filter with specified parameters
+    bilateral_filtered_image = cv2.bilateralFilter(image, d=15, sigmaColor=75, sigmaSpace=75)
+
+    # Display the filtered image using OpenCV
+    cv2.imshow('Bilateral Filtered Image', bilateral_filtered_image)
+
+    # Wait for a key press to close the windows
+    cv2.waitKey(0)  # 0 means wait indefinitely
+
+    # Destroy all windows after a key press
+    cv2.destroyAllWindows()
